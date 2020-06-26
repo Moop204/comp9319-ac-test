@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-my $text="./rsc/stest.txt";
+my $text="./rsc/bms.txt";
 my $encode="./aencode";
 my $decode="./adecode";
 my $cfile="correct.txt";
@@ -14,7 +14,9 @@ open(my $OF, '>', "$ofile");
 foreach my $line (<$FILE>) {
   #chomp($line); 
   $line =~ s/\s*$//g;
+  $line =~ s/"/\\"/g;
   if($line ne "") {
+    #print "$line\n";
     print $CF "$line\n";
     my $res=`echo "$line" | $encode | $decode`; 
     print $OF "$res";
