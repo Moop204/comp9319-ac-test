@@ -1,8 +1,8 @@
 #!/usr/bin/perl
 
 my $text="./rsc/bms.txt";
-my $encode="./aencode";
-my $decode="./adecode";
+my $encode="./../../aencode";
+my $decode="./../../adecode";
 my $cfile="correct.txt";
 my $ofile="output.txt";
 my $dfile="diff.txt";
@@ -22,7 +22,7 @@ foreach my $line (<$FILE>) {
     #print "$line\n";
     print $CF "$correct\n";
     my $res=`echo "$line" | $encode | $decode`; 
-    print $OF "$res";
+    print $OF "$res\n";
   }
 }
 
